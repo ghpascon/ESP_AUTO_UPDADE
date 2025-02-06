@@ -24,3 +24,5 @@ O código está definido para o esp32S3 caso necessite para o esp32 alterar dent
 E dentro de classes/wifi/secrets.h alterar o url
 
 Ao fazer o upload para o github, sempre que o esp32 reiniciar ele vai buscar por novas atualizações.
+
+Caso existam Diversos ESP32 todos vão fazer o upload automatico
