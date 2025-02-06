@@ -43,7 +43,7 @@ private:
         {
             String fileContent;
             serializeJson(file, fileContent);
-            Serial.println(fileContent);
+            // Serial.println(fileContent);
 
             if (!file.containsKey("name") || !file.containsKey("download_url"))
                 continue;

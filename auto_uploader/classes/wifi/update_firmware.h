@@ -9,7 +9,6 @@ public:
         mbedtls_base64_decode(decodedOutput, sizeof(decodedOutput), &decodedLen,
                               (const unsigned char *)encoded.c_str(), encoded.length());
 
-        Serial.println(String((char *)decodedOutput).substring(0, decodedLen));
         return String((char *)decodedOutput).substring(0, decodedLen);
     }
 
@@ -22,7 +21,7 @@ public:
             return "";
         }
 
-        Serial.println("Conteúdo do arquivo:");
+        Serial.println("sha:");
 
         String sha = arquivo.readString(); // Lê todo o conteúdo do arquivo corretamente
         arquivo.close();
@@ -31,6 +30,7 @@ public:
         sha.replace(" ", "");
         sha.replace("\n", "");
         sha.replace("\r", "");
+        Serial.println(sha);
         return sha;
     }
 
@@ -44,7 +44,7 @@ public:
         }
         arquivo.println(conteudo);
         arquivo.close();
-        Serial.println("Conteúdo escrito com sucesso!");
+        Serial.println("new_sha:");
         Serial.println(conteudo);
     }
 

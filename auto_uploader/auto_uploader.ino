@@ -6,7 +6,7 @@ void funcoes(){
   static unsigned long current_time=millis();
   if(millis()-current_time<time)return;
   current_time=millis();
-  Serial.println("TESTE");
+  Serial.println("UPLOAD FROM GITHUB");
 }
 
 
