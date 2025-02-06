@@ -51,7 +51,7 @@ private:
             String filename = file["name"].as<String>();
             if (filename.endsWith(".ino.bin"))
             {
-                Serial.println("File name: " + filename);
+                // Serial.println("File name: " + filename);
                 String download_path = file["download_url"].as<String>();
                 String sha = file["sha"].as<String>();
                 update_firmware(download_path, sha);

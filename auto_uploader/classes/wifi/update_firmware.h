@@ -31,8 +31,6 @@ public:
         sha.replace(" ", "");
         sha.replace("\n", "");
         sha.replace("\r", "");
-
-        Serial.println(sha);
         return sha;
     }
 

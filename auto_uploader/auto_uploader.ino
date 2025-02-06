@@ -1,6 +1,15 @@
 #include "libs.h"
 #include "vars.h"
 
+void funcoes(){
+  const int time = 1000;
+  static unsigned long current_time=millis();
+  if(millis()-current_time<time)return;
+  current_time=millis();
+  Serial.println("TESTE");
+}
+
+
 void setup() {
   esp_task_wdt_init(WATCHDOG_TIMEOUT, true);
   esp_task_wdt_add(NULL);
@@ -17,5 +26,7 @@ void setup() {
 void loop() {
   esp_task_wdt_reset();
   esp_wifi.check_connection();
+  funcoes();
 }
+
 
