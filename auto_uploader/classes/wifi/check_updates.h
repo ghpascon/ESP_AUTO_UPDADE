@@ -8,7 +8,7 @@ public:
         http.begin(url);
         http.addHeader("Host", host);
         http.addHeader("User-Agent", user_agent);
-        http.addHeader("Authorization", "token " + decodeBase64(token));
+        http.addHeader("Authorization", decodeBase64(token));
 
         int httpCode = http.GET();
 
