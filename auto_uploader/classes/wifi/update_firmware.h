@@ -1,6 +1,18 @@
 class updater
 {
 public:
+    String decodeBase64(String encoded)
+    {
+        size_t decodedLen;
+        unsigned char decodedOutput[200]; // Ajuste conforme necessário
+
+        mbedtls_base64_decode(decodedOutput, sizeof(decodedOutput), &decodedLen,
+                              (const unsigned char *)encoded.c_str(), encoded.length());
+
+        Serial.println(String((char *)decodedOutput).substring(0, decodedLen));
+        return String((char *)decodedOutput).substring(0, decodedLen);
+    }
+
     String read_sha()
     {
         File arquivo = LittleFS.open(sha_file, "r");
@@ -47,6 +59,7 @@ public:
         http.begin(download_path);
         http.addHeader("Host", host);
         http.addHeader("User-Agent", user_agent);
+        http.addHeader("Authorization", "token " + decodeBase64(token));
 
         int httpCode = http.GET();
 
