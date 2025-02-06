@@ -21,16 +21,17 @@ public:
             Serial.println("Erro ao abrir o arquivo para leitura");
             return "";
         }
+
         Serial.println("Conteúdo do arquivo:");
-        String sha = "";
-        while (arquivo.available())
-        {
-            sha += arquivo.read();
-        }
+
+        String sha = arquivo.readString(); // Lê todo o conteúdo do arquivo corretamente
         arquivo.close();
-        sha.replace(" ","");
-        sha.replace("\n","");
-        sha.replace("\r","");
+
+        // Remove espaços, quebras de linha e retornos de carro
+        sha.replace(" ", "");
+        sha.replace("\n", "");
+        sha.replace("\r", "");
+
         Serial.println(sha);
         return sha;
     }
